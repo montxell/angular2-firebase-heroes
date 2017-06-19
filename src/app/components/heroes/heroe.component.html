@@ -10,14 +10,14 @@
 
   <div class="col-md-12">
 
-    <form>
+    <form (ngSubmit)="save()" #forma="ngForm">
 
       <div class="form-group">
 
         <label>Name</label>
-        <input
+        <input [(ngModel)]="heroe.name"
+                name="name"
                 type="text"
-                name=""
                 class="form-control"
                 placeholder="Heroe name"
                 required>
@@ -28,8 +28,9 @@
       <div class="form-group">
 
         <label>Universe</label>
-        <select class="form-control"
-                name="">
+        <select [(ngModel)]="heroe.universe"
+                name="universe"
+                class="form-control">
           <option value="Marvel">Marvel</option>
           <option value="DC">DC</option>
         </select>
@@ -40,12 +41,11 @@
       <div class="form-group">
 
         <label>Bio</label>
-        <textarea
-                type="text"
-                name=""
-                class="form-control"
-                placeholder="Bio"
-                required>
+        <textarea [(ngModel)]="heroe.bio"
+                  name="bio"
+                  type="text"
+                  class="form-control"
+                  placeholder="Bio">
         </textarea>
 
       </div>
@@ -53,7 +53,9 @@
 
       <div class="form-group">
 
-        <button type="submit" class="btn btn-outline-primary">
+        <button [disabled]="!forma.valid"
+                type="submit"
+                class="btn btn-outline-primary">
           Save changes
         </button>
 
