@@ -35,10 +35,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let key of heroes | keys; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ heroes[key].name }}</td>
+            <td>{{ heroes[key].universe }}</td>
             <td></td>
           </tr>
           <tr>
